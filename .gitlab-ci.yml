@@ -7,7 +7,8 @@ stages:
 pages:
   stage: build
   tags: [docker, office]
-  script: build
+  script: 
+    - build
   only:
     - master
   artifacts:
