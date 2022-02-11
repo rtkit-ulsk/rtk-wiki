@@ -4,3 +4,6 @@ language = "ru"
 multilingual = false
 src = "src"
 title = "RTK WIKI"
+
+[build]
+build-dir = "public"

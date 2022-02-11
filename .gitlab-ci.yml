@@ -1,16 +1,21 @@
-image: peaceiris/mdbook:v0.4.15
-
 stages:
-  - build
-
+    - deploy
 
 pages:
-  stage: build
-  tags: [docker, office]
+  stage: deploy
+  image: rust:latest
+  variables:
+    CARGO_HOME: $CI_PROJECT_DIR/cargo
+  before_script:
+    - export PATH="$PATH:$CARGO_HOME/bin"
+    - mdbook --version || cargo install --debug mdbook
   script:
-    - echo "HELLO WORLD"
+        - mdbook build -d public
   only:
-    - master
+      - master
   artifacts:
+      paths:
+          - public
+  cache:
     paths:
-      - book
+    - $CARGO_HOME/bin
