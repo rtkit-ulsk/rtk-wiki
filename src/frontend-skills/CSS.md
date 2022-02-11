@@ -12,8 +12,8 @@
 - [Комментарии в CSS](https://doka.guide/css/comments/)
 - [Вендорные префиксы](https://doka.guide/css/vendor-prefixes/)
 - [Подключение стилей](https://doka.guide/css/adding-styles/)
-- `[display](https://doka.guide/css/display/)`
-- `[all](https://doka.guide/css/all/)`
+- [display](https://doka.guide/css/display/)
+- [all](https://doka.guide/css/all/)
 
 ### Селекторы
 
@@ -29,13 +29,13 @@
 ### Цвета в вебе
 
 - [Цвета в вебе](https://doka.guide/css/web-colors/)
-- `[currentColor](https://doka.guide/css/currentcolor/)`
+- [currentColor](https://doka.guide/css/currentcolor/)
 
 ### Единицы измерения
 
 - [Единицы измерения](https://doka.guide/css/numeric-types/)
-- `[vw`, `vh`, `vmin`, `vmax`](https://doka.guide/css/vw-vh/)
-- `[rem`, `em`](https://doka.guide/css/rem-em/)
+- [`vw`, `vh`, `vmin`, `vmax`](https://doka.guide/css/vw-vh/)
+- [`rem`, `em`](https://doka.guide/css/rem-em/)
 
 ### Анимации
 

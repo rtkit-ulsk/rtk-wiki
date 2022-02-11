@@ -1,7 +1,7 @@
 SHELL := '/bin/bash'
 
 dev:
-	mdbook serve --open
+	docker-compose up
 
 build:
 	mdbook build
