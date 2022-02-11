@@ -6,6 +6,7 @@ stages:
 
 pages:
   stage: build
+  tags: [docker, b2g]
   only: 
     - master
   script: make build
