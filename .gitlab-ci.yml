@@ -6,9 +6,10 @@ stages:
 
 pages:
   stage: build
-  tags: [docker, b2g]
-  only: master
+  tags: [docker, office]
   script: mdbook build
+  only:
+    - master
   artifacts:
     paths:
       - book
