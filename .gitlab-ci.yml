@@ -4,6 +4,7 @@ stages:
 pages:
   stage: deploy
   image: rust:latest
+  tags: [docker, office]
   variables:
     CARGO_HOME: $CI_PROJECT_DIR/cargo
   before_script:
