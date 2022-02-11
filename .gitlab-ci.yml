@@ -8,7 +8,7 @@ pages:
   stage: build
   tags: [docker, b2g]
   only: master
-  script: make build
+  script: mdbook build
   artifacts:
     paths:
       - book
