@@ -8,8 +8,7 @@ pages:
   stage: build
   tags: [docker, office]
   script:
-    - echo $@
-    - build
+    - echo "HELLO WORLD"
   only:
     - master
   artifacts:
