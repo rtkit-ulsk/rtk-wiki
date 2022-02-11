@@ -1,0 +1,6 @@
+[book]
+authors = ["Mike Sinyakov"]
+language = "ru"
+multilingual = false
+src = "src"
+title = "RTK WIKI"

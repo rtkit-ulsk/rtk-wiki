@@ -1,0 +1,14 @@
+image: peaceiris/mdbook:v0.4.15
+
+stages:
+  - build
+
+
+pages:
+  stage: build
+  tags: [docker, b2g]
+  only: master
+  script: make build
+  artifacts:
+    paths:
+      - book
