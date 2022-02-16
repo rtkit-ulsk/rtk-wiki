@@ -12,3 +12,9 @@
 
   - [Инструменты](frontend-skills/tools.md)
 
+- [Backend skills]()
+- [Soft skills]()
+- [Common developers skills]()
+
+# Книги
+  - [Frontend](./frontend-books/Readme.md)
