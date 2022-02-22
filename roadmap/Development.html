@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<html lang="ru" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Разработка - RTK WIKI</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Вступление</a></li><li class="chapter-item expanded "><a href="../roadmap/index.html"><strong aria-hidden="true">2.</strong> Матрица компетенций</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../roadmap/Values.html"><strong aria-hidden="true">2.1.</strong> Ценности</a></li><li class="chapter-item expanded "><a href="../roadmap/Development.html" class="active"><strong aria-hidden="true">2.2.</strong> Разработка</a></li><li class="chapter-item expanded "><a href="../roadmap/Execution.html"><strong aria-hidden="true">2.3.</strong> Исполнение</a></li><li class="chapter-item expanded "><a href="../roadmap/Supporting.html"><strong aria-hidden="true">2.4.</strong> Поддержка</a></li><li class="chapter-item expanded "><a href="../roadmap/Strengthening.html"><strong aria-hidden="true">2.5.</strong> Укрепление</a></li><li class="chapter-item expanded "><a href="../roadmap/Levels.html"><strong aria-hidden="true">2.6.</strong> Уровни</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Hard skills</li><li class="chapter-item expanded "><a href="../frontend-skills/index.html"><strong aria-hidden="true">3.</strong> Frontend skills</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../frontend-skills/base-lang.html"><strong aria-hidden="true">3.1.</strong> Базовые знания языка</a></li><li class="chapter-item expanded "><a href="../frontend-skills/quality.html"><strong aria-hidden="true">3.2.</strong> Качество кода</a></li><li class="chapter-item expanded "><a href="../frontend-skills/advanced-lang.html"><strong aria-hidden="true">3.3.</strong> Продвинутые знания языка</a></li><li class="chapter-item expanded "><a href="../frontend-skills/CSS.html"><strong aria-hidden="true">3.4.</strong> CSS</a></li><li class="chapter-item expanded "><a href="../frontend-skills/CSS-Preprocessor.html"><strong aria-hidden="true">3.5.</strong> CSS Preprocessor</a></li><li class="chapter-item expanded "><a href="../frontend-skills/tools.html"><strong aria-hidden="true">3.6.</strong> Инструменты</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Backend skills</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Soft skills</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Common developers skills</div></li><li class="chapter-item expanded affix "><li class="part-title">Книги</li><li class="chapter-item expanded "><a href="../frontend-books/index.html"><strong aria-hidden="true">7.</strong> Frontend</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">RTK WIKI</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="Разработка"><a class="header" href="#Разработка">Разработка</a></h1>
+<p>Направление роста разработки подчеркивает развитие навыков и опыта в основной инженерной области в RTK IT.</p>
+<p>Она фокусируется на способности каждого инженера проектировать и разрабатывать высококачественные продукты с учетом потребностей клиентов и бизнеса.</p>
+<p>В рамках этого направления роста существует четыре специализации - тестирование, фронтенд, бекенд и менджемент.</p>
+<blockquote>
+<p>Для каждого направления, у руководителей должны быть списки вопросов с сылками на обучение</p>
+</blockquote>
+<p>В данной категории для всех направлений требования общие (FE, BE, QA, ME), в качестве вспомогательных навыков также выделяются <strong>Данные</strong>, <strong>Операции</strong></p>
+<h3 id="Данные"><a class="header" href="#Данные">Данные:</a></h3>
+<p>Основные инженерные понятия и концепции данных (или бигдата), технологии и инструменты, (NO)SQL базы данных, манипулирование данными и реализация, машинное обучение и фреймворки</p>
+<h3 id="Фронтенд"><a class="header" href="#Фронтенд">Фронтенд:</a></h3>
+<p>Разработка клиентских интрефейсов. Основные концепции веб разработки, технологии и фреймоврки, такие как: HTML, CSS, JavaScript, React, TypeScript, реактивные и функциональные парадигмы.</p>
+<h3 id="Бекенд"><a class="header" href="#Бекенд">Бекенд:</a></h3>
+<p>Разработка серверных приложений. Основные концепции серверной разработки и проектирования API, использование технологий и фреймворков, таких как: Ruby, Rails, Go, NodeJS, GraphQL, REST</p>
+<h3 id="Операции"><a class="header" href="#Операции">Операции:</a></h3>
+<p>Разработка и поддержка операционных и вспомогательных систем, таких как CI/CD и инструментов (Gitlab, Jenkins, Kubernetes)</p>
+<blockquote>
+<p>Нужно добавить тестирование и менжемент</p>
+</blockquote>
+<ul>
+<li>1
+<ul>
+<li>Делает хорошую работу в тесном сотрудничестве с более старшими коллегами, работающими в рамках установленных решений. Следует их
+лучшим практикам и политике команды.</li>
+<li>Повторно использует существующий код, конфигурацию и компоненты соответствующим образом.</li>
+<li>Исправляет простые дефекты в различных частях системы.</li>
+<li>Реализует небольшие изменения.</li>
+<li>Добавляет новые функциональные возможности, используя существующую архитектуру</li>
+</ul>
+</li>
+<li>2
+<ul>
+<li>Разрабатывает новые экземпляры существующей архитектуры или незначительные улучшения существующих решений и архитектур</li>
+<li>Переносит код со старых шаблонов на новые.</li>
+<li>Определяет потребности в реализации на основе требований.</li>
+<li>Предлагает технические улучшения небольших функций, основанных на требованиях.</li>
+<li>Отвечает за простые последствия, выявленными после инцидента</li>
+<li>Своевременно, без напоминаний обновляет инструменты и платформы, используемые в приложениях, до новых версий.</li>
+</ul>
+</li>
+<li>3
+<ul>
+<li>Берет на себя ответственность и принимает решения о разработке новых функций/модулей, используя свой опыт. Способный выполнить то, что нужно самому.</li>
+<li>Реализует сквозные (умеренно) сложные функции в соответствии с требованиями.</li>
+<li>Исследует сложные дефекты и пишет подробные постмортен заключения.</li>
+<li>Исследует и устраняет сложные труднодоступные производственные дефекты.</li>
+<li>Разрабатывает решение для нового функционала, эффективно рассуждая о различных вариантах.</li>
+<li>Обеспечивает конкретную обратную связь по проектам и предлагает альтернативы.</li>
+<li>Исследует и предлагает улучшения или новые решения.</li>
+</ul>
+</li>
+<li>4
+<ul>
+<li>Обладает исключительными и заметными навыками в любой из инженерных областей. Берет на себя ответственность и разрабатывает комплексные системы самостоятельно. Задает направление в рамках команды</li>
+<li>Берет на себя инициативу по миграции архитектуры, снижая нагрузку на инженеров.</li>
+<li>Внедряет новые технологии, которые помогают решать долгосрочные проблемы.</li>
+<li>Проектирует системы и решения для достижения стратегических бизнес-целей.</li>
+<li>Принимает архитектурные решения, устраняющие целые классы дефектов.</li>
+<li>Разрабатывает комплексные решения, охватывающие несколько систем.</li>
+</ul>
+</li>
+<li>5
+<ul>
+<li>Широко признанный уровень осведомленности в данной специализации. Когда люди думают о любом вопросе, связанным со специализацией, то вспоминают его. Задает стратегическое направление в рамках команд.</li>
+<li>Определяет и управляет сложными проектами.</li>
+<li>Исследует, предлагает и выбирает фреймворки/библиотеки для использования в компании.</li>
+<li>Определяет долгосрочное видение основных систем или инфраструктуры данных на уровне компании.</li>
+<li>Принимает решения, которые оказывают долгосрочное положительное влияние с широкими последствиями.</li>
+<li>Разрабатывает и реализует технологические стратегии.</li>
+<li>Выявляет и решает системные проблемы в архитектурах.</li>
+<li>Определяет и внедряет программные архитектуры, стандарты проектирования и лучшие практики в масштабах всей компании.</li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../roadmap/Values.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../roadmap/Execution.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../roadmap/Values.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../roadmap/Execution.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
