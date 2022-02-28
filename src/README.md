@@ -3,6 +3,6 @@
 
 Деплой происходит сам, при отправке в master
 
-Репа [тут](https://code.video.rt.ru/toxic_infrastructure/rtkit-wiki)
+Репа [тут](https://github.com/rtkit-ulsk/rtk-wiki)
 
-Прод [тут](http://toxic_infrastructure.pages.restr.im/rtkit-wiki/)
+Прод [тут](https://rtkit-ulsk.github.io/rtk-wiki/roadmap/index.html)
