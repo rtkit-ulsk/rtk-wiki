@@ -28,3 +28,4 @@
   - [Frontend](./frontend-books/Readme.md)
 # Инструменты
   - [Frontend](./tools/frontend.md)
+  - [Оформление Readme](./tools/readme-stylegide.md)

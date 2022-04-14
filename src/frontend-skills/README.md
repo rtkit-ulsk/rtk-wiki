@@ -17,6 +17,7 @@
 ## Infrastructure
 ---
 - [Инструменты](tools.md)
+- [Оформление ReadMe](readme-stylegide.md)
 
 
 ## Typescript
