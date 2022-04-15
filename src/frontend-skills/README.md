@@ -17,9 +17,13 @@
 ## Infrastructure
 ---
 - [Инструменты](tools.md)
-- [Оформление ReadMe](readme-stylegide.md)
 
 
 ## Typescript
+ - [Видео курс №1](https://www.youtube.com/watch?v=nyIpDs2DJ_c)
+ - [Видео курс №2](https://www.youtube.com/watch?v=5QnZ9AyDW6c)
+ - [TS + react №1](https://www.youtube.com/watch?v=acO37eSCowc)
+ - [TS + react №2](https://www.youtube.com/watch?v=OvLWWvjoi8s)
+
 ## React
 
