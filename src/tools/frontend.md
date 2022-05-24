@@ -1,2 +1,1 @@
-[Реакт страрт темплейт](https://github.com/rtkit-ulsk/rtk-frontend-template)
-
+[Реакт старт темплейт](https://github.com/rtkit-ulsk/rtk-frontend-template)
