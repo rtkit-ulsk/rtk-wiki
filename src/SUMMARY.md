@@ -31,5 +31,4 @@
   - [Оформление Readme](./tools/readme-stylegide.md)
 
 # Статьи
-  - [frontend]
-    - [CSS animations](articles/frontend/animations.md)
+  - [CSS animations](articles/frontend/animations.md)
