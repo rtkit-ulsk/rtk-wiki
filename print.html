@@ -5,8 +5,10 @@
         <meta charset="UTF-8">
         <title>RTK WIKI</title>
         <meta name="robots" content="noindex" />
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -17,25 +19,29 @@
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
         <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -51,7 +57,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -63,12 +69,14 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -84,7 +92,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -94,7 +102,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -111,6 +119,7 @@
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -124,8 +133,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -171,24 +181,26 @@ $ make build // билд приложения утилитой mdbook
 <p><a href="https://github.com/rust-lang/mdBook">mdBook</a>
 <a href="https://pages.github.com">GitHub Pages</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="developers-roadmap"><a class="header" href="#developers-roadmap">Developers Roadmap</a></h1>
-<table><thead><tr><th>LVL</th><th>Название</th><th>Комментарий</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>LVL</th><th>Название</th><th>Комментарий</th></tr></thead><tbody>
 <tr><td>1</td><td>Джуниор</td><td></td></tr>
 <tr><td>2</td><td>Мидл -</td><td></td></tr>
 <tr><td>3</td><td>Мидл</td><td></td></tr>
 <tr><td>4</td><td>Мидл +</td><td></td></tr>
 <tr><td>5</td><td>Синьйор</td><td></td></tr>
 </tbody></table>
+</div>
 <h2 id="1-Джуниор"><a class="header" href="#1-Джуниор">1 (Джуниор)</a></h2>
 <p>Самое начало пути. У вас есть небольшой опыт в разработке, но вам предстоит выучить еще много, перед тем как вы будете создавать сложные, комплексные системы с нуля.</p>
 <p>Вы очень рады любой возможности учиться и набираться большего опыта. Вы любите решать сложные проблемы и наслаждайтесь, когда ваша работа оказывает положительное влияние.</p>
 <p>Скорее всего, вам не ясно, в каком направлении(FE, BE) вы будете расти, но вы точно знаете, что создавать программные продукты-это круто</p>
 <p>Мы ожидаем, что наши молодые инженеры узнают как можно больше и разовьют прочные инженерные навыки за несколько лет. Вот специализации, которые могут помочь вам ускорить ваш рост и стать эффективными членами команды:</p>
-<table><thead><tr><th>Разработка</th><th>Исполнение</th><th>Укрепление</th><th></th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Разработка</th><th>Исполнение</th><th>Укрепление</th><th></th></tr></thead><tbody>
 <tr><td>Любая специализация* 2+</td><td>Доставка 1+</td><td>Сообщество 1+</td><td></td></tr>
 <tr><td>Операции 1+</td><td>Коммуникации 1+</td><td></td><td></td></tr>
 <tr><td></td><td>Качество 1+</td><td></td><td></td></tr>
 <tr><td></td><td>Оптимизация 1+</td><td></td><td></td></tr>
 </tbody></table>
+</div>
 <h3 id="У-вас-должно-быть"><a class="header" href="#У-вас-должно-быть">У вас должно быть:</a></h3>
 <ul>
 <li>Отличные навыки обучаемости – учитесь и применяйте</li>
@@ -216,12 +228,13 @@ $ make build // билд приложения утилитой mdbook
 <p>Вы можете предоставлять, получать и работать с обратной связью.</p>
 <p>Вы чувствуете себя комфортно, делая код ревью и помогая инженерам, которые только начали свой путь, учиться.</p>
 <p>На этом этапе специализации, которые могут помочь вам ускорить ваш рост и стать эффективным членом команды, перечислены ниже.</p>
-<table><thead><tr><th>Разработка</th><th>Исполнение</th><th>Поддержка</th><th>Укрепление</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Разработка</th><th>Исполнение</th><th>Поддержка</th><th>Укрепление</th></tr></thead><tbody>
 <tr><td>Основная специализация 3+</td><td>Доставка 2+</td><td>OrgDev 1+</td><td>Сообщество 2+</td></tr>
 <tr><td>Операции 1+</td><td>Коммуникации 2+</td><td>Благополучие 1+</td><td>Рекрутинг 1+</td></tr>
 <tr><td></td><td>Качество 2+</td><td></td><td></td></tr>
 <tr><td></td><td>Оптимизация 2+</td><td></td><td></td></tr>
 </tbody></table>
+</div>
 <h3 id="У-вас-должно-быть-1"><a class="header" href="#У-вас-должно-быть-1">У вас должно быть:</a></h3>
 <ul>
 <li>Успешный опыт работы в качестве инженера в нашей компании или в другой</li>
@@ -250,12 +263,13 @@ $ make build // билд приложения утилитой mdbook
 <p>Вы уверенно делитесь своим мнением. Вы можете подкрепить свое сообщение четкими и сильными аргументами, основанными на вашем опыте и исследованиях.</p>
 <p>Вы регулярно проводите код-ревью. Вы можете эффективно способствовать обсуждению дизайна</p>
 <p>Ниже перечислены специализации, которые могут помочь вам ускорить ваш рост и стать эффективным членом команды на этом этапе.</p>
-<table><thead><tr><th>Разработка</th><th>Исполнение</th><th>Поддержка</th><th>Укрепление</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Разработка</th><th>Исполнение</th><th>Поддержка</th><th>Укрепление</th></tr></thead><tbody>
 <tr><td>Основная специализация 3+</td><td>Доставка 2+</td><td>OrgDev 1+</td><td>Сообщество 2+</td></tr>
 <tr><td>Операции 2+</td><td>Коммуникации 2+</td><td>Благополучие 2+</td><td>Рекрутинг 2+</td></tr>
 <tr><td>Вторая специализация 2+</td><td>Качество 3+</td><td>Рост вместе 1+</td><td>Наставничество 1+</td></tr>
 <tr><td></td><td>Оптимизация 2+</td><td></td><td></td></tr>
 </tbody></table>
+</div>
 <h3 id="У-вас-должно-быть-2"><a class="header" href="#У-вас-должно-быть-2">У вас должно быть:</a></h3>
 <ul>
 <li>Успешный опыт работы в качестве инженера (lvl 3) в нашей компании или в другой</li>
@@ -285,12 +299,13 @@ $ make build // билд приложения утилитой mdbook
 <p>Вы опытный инженер-программист. Вы чувствуете себя очень комфортно в своей области знаний. Вы эффективно работаете между командами и задействуете другие специализации. Вы можете влиять на решения и защищать свои предложения аргументами, разработанными с учетом вашего глубокого понимания вопроса.</p>
 <p>Вы являетесь наставником для молодых инженеров и источником знаний в своей области. Это момент, когда вы можете дать больше организации, поддерживая других и работая над большими и сложными проектами.</p>
 <p>У нас все еще есть некоторые рекомендации по областям, которые помогут вам продолжить свой рост в качестве инженера, но поскольку вы являетесь старшим специалистом, мы ожидаем, что вы будете активно размышлять над собой и определять специализации, которые помогут вам полностью реализовать свой потенциал.</p>
-<table><thead><tr><th>Разработка</th><th>Исполнение</th><th>Поддержка</th><th>Укрепление</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Разработка</th><th>Исполнение</th><th>Поддержка</th><th>Укрепление</th></tr></thead><tbody>
 <tr><td>Основная специализация 3+</td><td>Доставка 3+</td><td>OrgDev 2+</td><td>Сообщество 2+</td></tr>
 <tr><td>Операции 2+</td><td>Коммуникации 3+</td><td>Благополучие 3+</td><td>Рекрутинг 2+</td></tr>
 <tr><td>Вторая специализация 2+</td><td>Качество 4+</td><td>Рост вместе 1+</td><td>Наставничество 1+</td></tr>
 <tr><td></td><td>Оптимизация 3+</td><td></td><td>Евангелизм 1+</td></tr>
 </tbody></table>
+</div>
 <h3 id="У-вас-должно-быть-3"><a class="header" href="#У-вас-должно-быть-3">У вас должно быть:</a></h3>
 <ul>
 <li>Успешный опыт работы в должности старшего инженера в компании или в другой компании</li>
@@ -455,7 +470,7 @@ $ make build // билд приложения утилитой mdbook
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Исполнение"><a class="header" href="#Исполнение">Исполнение</a></h1>
 <p>Направление роста исполнения подчеркивает развитие навыков и опыта в области технического лидерства, это способствует достижению высококачественных результатов. Трек фокусируется на способности каждого инженера непрерывно совершенствовать свою работу и достигать высококачественных результатов, используя различные методы и инструменты.
 В рамках этого направления роста есть четыре специализации - <strong>доставка</strong>, <strong>коммуникация</strong>, <strong>качество</strong> и <strong>оптимизация</strong>.</p>
-<table><thead><tr><th></th><th>Доставка</th><th>Коммуникация</th><th>Качество</th><th>Оптимизация</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th></th><th>Доставка</th><th>Коммуникация</th><th>Качество</th><th>Оптимизация</th></tr></thead><tbody>
 <tr><td></td><td>Умеет планировать, оценивать и доставлять фичи согласно заданным целям, срокам и бюджету</td><td>Владеет способностью искусного и эффективного общения с целевой аудиторией. Слушает и слышит.</td><td>Воплощает и продвигает лучшие практики для обеспечения лучшего качества продукта и сервисов.</td><td>Бросает вызов устоям и положительно влияет на организационные моменты вне рабочего процесса</td></tr>
 <tr><td>1</td><td>Доставка</td><td>Коммуникация</td><td>Качество</td><td>Оптимизация</td></tr>
 <tr><td></td><td>Понимает и эффективно доставляет личные таски, следуя лучшим практикам команды</td><td>Делится информацией внутри команды и предоставляет адекватную обратную связь</td><td>Обеспечивает стабильно хорошее качество работы в соответсвии со стандартами компании</td><td>Определяет и формирует возможности для организационных и проектных улучшений</td></tr>
@@ -483,10 +498,10 @@ $ make build // билд приложения утилитой mdbook
 <tr><td></td><td>Мейнтейнит и реализует ключевые проекты компании, влияющие на общий объем производства.</td><td>Представляет руководителям или инвесторам ключевые планы компании, используя правильный формат и нужный объем информации</td><td>Гарантирует, что каждый рассматривает качество как высокоприоритетную деятельность</td><td>Планирует проект оптимизации в масштабах компании и эффективно осуществляет управление изменениями.</td></tr>
 <tr><td></td><td>Планирует и реализует ежегодные инициативы в масштабах компании или направления</td><td>Готовит бизнес-кейсы и доводит до руководства планы рабочих потоков</td><td>Помогает командам выделить достаточно времени для качественных инициатив и мероприятий</td><td>Убеждает руководство принять новую стратегию.</td></tr>
 </tbody></table>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="Поддержка"><a class="header" href="#Поддержка">Поддержка</a></h1>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="Поддержка"><a class="header" href="#Поддержка">Поддержка</a></h1>
 <p>Путь роста поддержки делает упор на развитие навыков межличностного общения и опыта в ситуационном лидерстве, а также на разработку эффективных организационных структур и процессов. Он фокусируется на способности каждого сотрудника постоянно улучшать рабочую среду, существующие процессы и ритуалы, а также на благополучии наших сотрудников.</p>
 <p>Есть четыре специализации на пути роста поддержки: <strong>Совместный рост</strong>, <strong>OrgDev</strong>, <strong>Благополучие</strong>, <strong>Достижение</strong></p>
-<table><thead><tr><th></th><th>Совместный рост</th><th>OrgDev</th><th>Благополучие</th><th>Достижение</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th></th><th>Совместный рост</th><th>OrgDev</th><th>Благополучие</th><th>Достижение</th></tr></thead><tbody>
 <tr><td></td><td>Выполняет программы в масштабах компании, поддерживающие профессиональный рост других</td><td>Создает и руководит внедрением новой организационной структуры в компании.</td><td>Внедряет практики для развития культуры непрерывной обратной связи в компании</td><td>Снимает серьезную напряженность между командами.</td></tr>
 <tr><td>1</td><td>Совместный рост</td><td>OrgDev</td><td>Благополучие</td><td>Достижение</td></tr>
 <tr><td></td><td>Готовит и проводит тренинги/презентации по различным темам роста персонала и лидерства</td><td>Анализирует существующие процессы и выявляет предвзятость, неэффективность и трудноуловимые негативные эффекты на производительность людей.</td><td>Выявляет организационные противоречия и помогает устранить их, привнося дополнительный контекст и согласованность.</td><td>Распознает неэффективность ритуалов в команде и работает с ними, чтобы улучшить результат.</td></tr>
@@ -514,11 +529,11 @@ $ make build // билд приложения утилитой mdbook
 <tr><td></td><td>Формально поддерживает и ментерит 7-10 человек и ставит перед ними амбициозные задачи.</td><td>Разрабатывает и реализует инициативы для решения текущих организационных проблем</td><td>Управляет ожиданиями коллег, лидирует в организации, способствует спокойствию и препятствует конфликтам</td><td>Берет на себя ответственность за давние проблемы с производительностью и решает их с помощью широкого спектра инструментов.</td></tr>
 <tr><td></td><td>Чемпион по росту. Поддерживает рост значительной части компании.</td><td>Возглавляет инициативы по решению проблем, вытекающих из скрытой динамики и норм компании.</td><td>Управляет информацией, превращает негатив в вдохновение и мотивацию и защищает все подразделение/направление/компанию.</td><td>Разрешает сложные организационные дисфункции и / или конфликты на высоком уровнях</td></tr>
 </tbody></table>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="Укрепление"><a class="header" href="#Укрепление">Укрепление</a></h1>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="Укрепление"><a class="header" href="#Укрепление">Укрепление</a></h1>
 <p>На пути к укреплению акцент делается на навыках и опыте, необходимых для того, чтобы помочь людям расти, развивать корпоративную культуру, создавать отличный бренд занятости и создавать сообщество компании.</p>
 <p>Он фокусируется на способности каждого сотрудника постоянно принимать нашу культуру, развивать наше сообщество и распространять информацию в большой компании, частью которой мы являемся</p>
 <p>Есть четыре специализации на пути укрепления: <strong>наставничество</strong>, <strong>евангелизм</strong>, <strong>рекрутинг</strong>, <strong>сообщество.</strong></p>
-<table><thead><tr><th></th><th>Наставничество</th><th>Евангелизм</th><th>Рекрутинг</th><th>Сообщество</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th></th><th>Наставничество</th><th>Евангелизм</th><th>Рекрутинг</th><th>Сообщество</th></tr></thead><tbody>
 <tr><td></td><td>Оказывает поддержку коллегам, распространяет знания и развивает людей за пределами формальных структур отчетности.</td><td>Продвигает компанию вовне как привлекательное и продуманное место для работы.</td><td>Укрепляет команду компании, привлекая отличных сотрудников.</td><td>Формирует внутреннее сообщество, отдает себя команде, защищает и превозносит ценности компании.</td></tr>
 <tr><td>1</td><td>Наставничество</td><td>Евангелизм</td><td>Рекрутинг</td><td>Сообщество</td></tr>
 <tr><td></td><td>Неофициально наставляет отдельных лиц, поддерживает новых сотрудников и передает институциональные знания.</td><td>Представляет компанию внешне и оказывает положительное влияние на отдельных лиц.</td><td>Приводит новых кандидатов и понимает, как их оценивать</td><td>Открыт для общения и работает над положительным вкладом в корпоративную культуру.</td></tr>
@@ -546,7 +561,7 @@ $ make build // билд приложения утилитой mdbook
 <tr><td></td><td>Выявляет потребности во внешних наставниках и помогает людям найти внешние учебные программы, которые способствуют их росту.</td><td>Участвует в крупных конференциях в качестве основного докладчика с международным вниманием</td><td>Устанавливает лучшие практики для найма разноплановых и высококлассных специалистов</td><td>Организует выездные мероприятия помимо своей повседневной работы для целого направления или компании.</td></tr>
 <tr><td></td><td>Устанавливает структуры стимулов для признания и вознаграждения наставничества</td><td></td><td>Инвестирует в отношения с лучшими кандидатами и привлекает их. Предотвращает уход лучших специалистов из компании</td><td>Объединяет отдельные отряды для создания взаимосвязи</td></tr>
 </tbody></table>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="Уровни"><a class="header" href="#Уровни">Уровни</a></h1>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="Уровни"><a class="header" href="#Уровни">Уровни</a></h1>
 <p>Здорово!
 У нас есть структура, на которую можно ссылаться и использовать для развития различных навыков и опыта, которые сделают нас полноценными профессионалами и помогут нам достичь недостижимого.
 Вы сейчас думаете, я много работаю, я расту, я освоил кучу навыков и помог многим своим коллегам достичь того же.
@@ -856,7 +871,7 @@ $ make build // билд приложения утилитой mdbook
 <ul>
 <li><a href="https://doka.guide/tools/site-readers/">Настройка сайта для поисковиков и скринридеров</a></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><table><thead><tr><th>Название</th><th>Обложка</th><th>Ссылка</th></tr></thead><tbody>
+<div style="break-before: page; page-break-before: always;"></div><div class="table-wrapper"><table><thead><tr><th>Название</th><th>Обложка</th><th>Ссылка</th></tr></thead><tbody>
 <tr><td>Погружение в ПАТТЕРНЫ ПРОЕКТИРОВАНИЯ</td><td><img src="https://refactoring.guru/images/patterns/book/web-cover-ru-2x.png" alt="" /></td><td><a href="https://refactoring.guru/ru/design-patterns/book">refactoring.guru</a></td></tr>
 <tr><td>Начните и Совершенствуйтесь</td><td><img src="https://github.com/azat-io/you-dont-know-js-ru/raw/master/up%20%26%20going/cover.jpg" alt="" /></td><td><a href="https://github.com/azat-io/you-dont-know-js-ru/blob/master/up%20%26%20going/README.md#%D0%92%D1%8B-%D0%BD%D0%B5-%D0%B7%D0%BD%D0%B0%D0%B5%D1%82%D0%B5-js-%D0%9D%D0%B0%D1%87%D0%BD%D0%B8%D1%82%D0%B5-%D0%B8-%D0%A1%D0%BE%D0%B2%D0%B5%D1%80%D1%88%D0%B5%D0%BD%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%D1%81%D1%8C">github.com</a></td></tr>
 <tr><td>Область Видимости и Замыкания</td><td><img src="https://github.com/azat-io/you-dont-know-js-ru/raw/master/scope%20%26%20closures/cover.jpg" alt="" /></td><td><a href="https://github.com/azat-io/you-dont-know-js-ru/blob/master/scope%20%26%20closures/README.md#%D0%92%D1%8B-%D0%BD%D0%B5-%D0%B7%D0%BD%D0%B0%D0%B5%D1%82%D0%B5-js-%D0%9E%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C-%D0%B2%D0%B8%D0%B4%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8-%D0%B8-%D0%B7%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D1%8F">github.com</a></td></tr>
@@ -866,7 +881,7 @@ $ make build // билд приложения утилитой mdbook
 <tr><td>ES6 и не только</td><td><img src="https://github.com/azat-io/you-dont-know-js-ru/raw/master/es6%20%26%20beyond/cover.jpg" alt="" /></td><td><a href="https://github.com/azat-io/you-dont-know-js-ru/blob/master/es6%20%26%20beyond/README.md#you-dont-know-js-es6--beyond">github.com</a></td></tr>
 <tr><td>Грокаем алгоритмы</td><td><img src="https://img-gorod.ru/25/763/2576389_detail.jpg" alt="" /></td><td><a href="https://www.ozon.ru/product/grokaem-algoritmy-illyustrirovannoe-posobie-dlya-programmistov-i-lyubopytstvuyushchih-211433683">github.com</a></td></tr>
 </tbody></table>
-<div style="break-before: page; page-break-before: always;"></div><p><a href="https://github.com/rtkit-ulsk/rtk-frontend-template">Реакт старт темплейт</a></p>
+</div><div style="break-before: page; page-break-before: always;"></div><p><a href="https://github.com/rtkit-ulsk/rtk-frontend-template">Реакт старт темплейт</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Рекомендации-по-написанию-readme-файла"><a class="header" href="#Рекомендации-по-написанию-readme-файла">Рекомендации по написанию Readme файла</a></h1>
 <p>Файл README.md является отправной точкой для инженера и должен располагаться в корне проекта.
 Этот файл содержит указания:</p>
@@ -908,31 +923,43 @@ react-router
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
             </nav>
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script type="text/javascript">
+
+        <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
+
+    </div>
     </body>
 </html>

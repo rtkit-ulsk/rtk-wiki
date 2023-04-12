@@ -4,8 +4,10 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Исполнение - RTK WIKI</title>
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -16,25 +18,29 @@
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
         <link rel="stylesheet" href="../css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="../fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
         <link rel="stylesheet" href="../tomorrow-night.css">
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -50,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -62,12 +68,14 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -83,7 +91,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -93,7 +101,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -110,6 +118,7 @@
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -123,8 +132,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -137,7 +147,7 @@
                         <h1 id="Исполнение"><a class="header" href="#Исполнение">Исполнение</a></h1>
 <p>Направление роста исполнения подчеркивает развитие навыков и опыта в области технического лидерства, это способствует достижению высококачественных результатов. Трек фокусируется на способности каждого инженера непрерывно совершенствовать свою работу и достигать высококачественных результатов, используя различные методы и инструменты.
 В рамках этого направления роста есть четыре специализации - <strong>доставка</strong>, <strong>коммуникация</strong>, <strong>качество</strong> и <strong>оптимизация</strong>.</p>
-<table><thead><tr><th></th><th>Доставка</th><th>Коммуникация</th><th>Качество</th><th>Оптимизация</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th></th><th>Доставка</th><th>Коммуникация</th><th>Качество</th><th>Оптимизация</th></tr></thead><tbody>
 <tr><td></td><td>Умеет планировать, оценивать и доставлять фичи согласно заданным целям, срокам и бюджету</td><td>Владеет способностью искусного и эффективного общения с целевой аудиторией. Слушает и слышит.</td><td>Воплощает и продвигает лучшие практики для обеспечения лучшего качества продукта и сервисов.</td><td>Бросает вызов устоям и положительно влияет на организационные моменты вне рабочего процесса</td></tr>
 <tr><td>1</td><td>Доставка</td><td>Коммуникация</td><td>Качество</td><td>Оптимизация</td></tr>
 <tr><td></td><td>Понимает и эффективно доставляет личные таски, следуя лучшим практикам команды</td><td>Делится информацией внутри команды и предоставляет адекватную обратную связь</td><td>Обеспечивает стабильно хорошее качество работы в соответсвии со стандартами компании</td><td>Определяет и формирует возможности для организационных и проектных улучшений</td></tr>
@@ -165,7 +175,7 @@
 <tr><td></td><td>Мейнтейнит и реализует ключевые проекты компании, влияющие на общий объем производства.</td><td>Представляет руководителям или инвесторам ключевые планы компании, используя правильный формат и нужный объем информации</td><td>Гарантирует, что каждый рассматривает качество как высокоприоритетную деятельность</td><td>Планирует проект оптимизации в масштабах компании и эффективно осуществляет управление изменениями.</td></tr>
 <tr><td></td><td>Планирует и реализует ежегодные инициативы в масштабах компании или направления</td><td>Готовит бизнес-кейсы и доводит до руководства планы рабочих потоков</td><td>Помогает командам выделить достаточно времени для качественных инициатив и мероприятий</td><td>Убеждает руководство принять новую стратегию.</td></tr>
 </tbody></table>
-
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -173,9 +183,11 @@
                             <a rel="prev" href="../roadmap/Development.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+
                             <a rel="next" href="../roadmap/Supporting.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -185,6 +197,7 @@
                     <a rel="prev" href="../roadmap/Development.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+
                     <a rel="next" href="../roadmap/Supporting.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
@@ -192,16 +205,25 @@
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
+
+
+    </div>
     </body>
 </html>

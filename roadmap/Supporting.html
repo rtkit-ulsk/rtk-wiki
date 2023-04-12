@@ -4,8 +4,10 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Поддержка - RTK WIKI</title>
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -16,25 +18,29 @@
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
         <link rel="stylesheet" href="../css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="../fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
         <link rel="stylesheet" href="../tomorrow-night.css">
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -50,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -62,12 +68,14 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -83,7 +91,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -93,7 +101,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -110,6 +118,7 @@
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -123,8 +132,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -137,7 +147,7 @@
                         <h1 id="Поддержка"><a class="header" href="#Поддержка">Поддержка</a></h1>
 <p>Путь роста поддержки делает упор на развитие навыков межличностного общения и опыта в ситуационном лидерстве, а также на разработку эффективных организационных структур и процессов. Он фокусируется на способности каждого сотрудника постоянно улучшать рабочую среду, существующие процессы и ритуалы, а также на благополучии наших сотрудников.</p>
 <p>Есть четыре специализации на пути роста поддержки: <strong>Совместный рост</strong>, <strong>OrgDev</strong>, <strong>Благополучие</strong>, <strong>Достижение</strong></p>
-<table><thead><tr><th></th><th>Совместный рост</th><th>OrgDev</th><th>Благополучие</th><th>Достижение</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th></th><th>Совместный рост</th><th>OrgDev</th><th>Благополучие</th><th>Достижение</th></tr></thead><tbody>
 <tr><td></td><td>Выполняет программы в масштабах компании, поддерживающие профессиональный рост других</td><td>Создает и руководит внедрением новой организационной структуры в компании.</td><td>Внедряет практики для развития культуры непрерывной обратной связи в компании</td><td>Снимает серьезную напряженность между командами.</td></tr>
 <tr><td>1</td><td>Совместный рост</td><td>OrgDev</td><td>Благополучие</td><td>Достижение</td></tr>
 <tr><td></td><td>Готовит и проводит тренинги/презентации по различным темам роста персонала и лидерства</td><td>Анализирует существующие процессы и выявляет предвзятость, неэффективность и трудноуловимые негативные эффекты на производительность людей.</td><td>Выявляет организационные противоречия и помогает устранить их, привнося дополнительный контекст и согласованность.</td><td>Распознает неэффективность ритуалов в команде и работает с ними, чтобы улучшить результат.</td></tr>
@@ -165,7 +175,7 @@
 <tr><td></td><td>Формально поддерживает и ментерит 7-10 человек и ставит перед ними амбициозные задачи.</td><td>Разрабатывает и реализует инициативы для решения текущих организационных проблем</td><td>Управляет ожиданиями коллег, лидирует в организации, способствует спокойствию и препятствует конфликтам</td><td>Берет на себя ответственность за давние проблемы с производительностью и решает их с помощью широкого спектра инструментов.</td></tr>
 <tr><td></td><td>Чемпион по росту. Поддерживает рост значительной части компании.</td><td>Возглавляет инициативы по решению проблем, вытекающих из скрытой динамики и норм компании.</td><td>Управляет информацией, превращает негатив в вдохновение и мотивацию и защищает все подразделение/направление/компанию.</td><td>Разрешает сложные организационные дисфункции и / или конфликты на высоком уровнях</td></tr>
 </tbody></table>
-
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -173,9 +183,11 @@
                             <a rel="prev" href="../roadmap/Execution.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+
                             <a rel="next" href="../roadmap/Strengthening.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -185,6 +197,7 @@
                     <a rel="prev" href="../roadmap/Execution.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+
                     <a rel="next" href="../roadmap/Strengthening.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
@@ -192,16 +205,25 @@
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
+
+
+    </div>
     </body>
 </html>
