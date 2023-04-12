@@ -29,3 +29,7 @@
 # Инструменты
   - [Frontend](./tools/frontend.md)
   - [Оформление Readme](./tools/readme-stylegide.md)
+
+# Статьи
+  - [frontend]
+    - [CSS animations](articles/frontend/animations.md)
